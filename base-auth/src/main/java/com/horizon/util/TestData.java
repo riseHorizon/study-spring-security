@@ -23,13 +23,16 @@ public class TestData {
     private List<UserBean> getAllUser() {
         if (null == allUser) {
             allUser = new ArrayList<>();
-            ResourceBean mobileResource = new ResourceBean("1", "mobile");
-            ResourceBean salaryResource = new ResourceBean("2", "salary");
+            ResourceBean mobileResource = new ResourceBean("1", CnAuthConstants.RESOURCE_MOBILE);
+            ResourceBean salaryResource = new ResourceBean("2", CnAuthConstants.RESOURCE_SALARY);
+            ResourceBean indexPageResource = new ResourceBean("3", CnAuthConstants.RESOURCE_INDEX_PAGE);
             List<ResourceBean> adminResources = new ArrayList<>();
             adminResources.add(mobileResource);
             adminResources.add(salaryResource);
+            adminResources.add(indexPageResource);
             List<ResourceBean> managerResources = new ArrayList<>();
             managerResources.add(salaryResource);
+            managerResources.add(indexPageResource);
             RoleBean adminRole = new RoleBean("1", "mobile");
             adminRole.setResources(adminResources);
             RoleBean managerRole = new RoleBean("2", "salary");

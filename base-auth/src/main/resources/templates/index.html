@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>登录</title>
+    <title>主页</title>
     <style>
         body{
             background-color:#cdedff;
@@ -29,7 +29,7 @@
 <script>
 $(function() {
     $.ajax({
-        url: "/common/getCurrentUser",
+        url: "/baseAuth/api/com/common/getCurrentUser",
         type: "post",
         success: function(result) {
             $("#J_user_id").html(result.userName);
@@ -40,7 +40,7 @@ $(function() {
     });
     $("#J_mobile_id").on("click", function() {
         $.ajax({
-            url: "/mobile/query",
+            url: "/baseAuth/api/com/mobile/query",
             type: "get",
             success: function(result) {
                 alert(result);
@@ -52,7 +52,7 @@ $(function() {
     });
     $("#J_salary_id").on("click", function() {
         $.ajax({
-            url: "/salary/query",
+            url: "/baseAuth/api/com/salary/query",
             type: "get",
             success: function(result) {
                 alert(result);
@@ -64,10 +64,10 @@ $(function() {
     });
     $("#J_logout_id").on("click", function() {
         $.ajax({
-            url: "/common/logout",
+            url: "/baseAuth/api/com/common/logout",
             type: "post",
             success: function(result) {
-                window.location.href = "/login.html";
+                window.location.href = "/baseAuth/page/login";
             },
             error: function(xhr, status, error) {
                 console.log(error);

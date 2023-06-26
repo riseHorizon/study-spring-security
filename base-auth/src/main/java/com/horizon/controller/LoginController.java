@@ -2,7 +2,7 @@ package com.horizon.controller;
 
 import com.horizon.dto.UserBean;
 import com.horizon.service.AuthService;
-import com.horizon.util.MyConstants;
+import com.horizon.util.CnAuthConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 @Slf4j
 @RestController
-@RequestMapping("/common/")
+@RequestMapping("/baseAuth/api/com/common/")
 public class LoginController {
 
     @Resource
@@ -25,7 +25,7 @@ public class LoginController {
         UserBean user = authService.userLogin(loginUser);
         if (null != user) {
             log.info("user login succeed");
-            request.getSession().setAttribute(MyConstants.FLAG_CURRENTUSER, user);
+            request.getSession().setAttribute(CnAuthConstants.FLAG_CURRENTUSER, user);
         }
         log.info("user login failed");
         return user;
@@ -33,11 +33,11 @@ public class LoginController {
 
     @PostMapping("/getCurrentUser")
     public Object getCurrentUser(HttpSession session) {
-        return session.getAttribute(MyConstants.FLAG_CURRENTUSER);
+        return session.getAttribute(CnAuthConstants.FLAG_CURRENTUSER);
     }
 
     @PostMapping("/logout")
     public void logout(HttpSession session) {
-        session.removeAttribute(MyConstants.FLAG_CURRENTUSER);
+        session.removeAttribute(CnAuthConstants.FLAG_CURRENTUSER);
     }
 }

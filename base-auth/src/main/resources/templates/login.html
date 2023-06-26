@@ -71,7 +71,7 @@
 $(function() {
     $("#J_submit_btn").click(function() {
         $.ajax({
-            url: "/common/login",
+            url: "/baseAuth/api/com/common/login",
             type: "post",
             data: {
                 userName: $("#J_username").val(),
@@ -79,7 +79,7 @@ $(function() {
             },
             success: function(result) {
                 if(result && result.userId) {
-                    window.location.href = "/index.html"
+                    window.location.href = "/baseAuth/page/auth/index"
                 } else {
                     alert(result.message);
                 }

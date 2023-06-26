@@ -18,7 +18,7 @@ public class MyWebAppConfigurer implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authInterceptor).addPathPatterns("/**");
+        registry.addInterceptor(authInterceptor).addPathPatterns("/baseAuth/api/com/**", "/baseAuth/page/auth/**");
     }
 
     /**
@@ -26,7 +26,7 @@ public class MyWebAppConfigurer implements WebMvcConfigurer {
      */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("redirect:/index.html");
+        registry.addViewController("/").setViewName("redirect:/baseAuth/page/login");
     }
 }
 
