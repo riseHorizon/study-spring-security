@@ -33,6 +33,8 @@ public class TestData {
             List<ResourceBean> managerResources = new ArrayList<>();
             managerResources.add(salaryResource);
             managerResources.add(indexPageResource);
+            List<ResourceBean> pageResources = new ArrayList<>();
+            pageResources.add(indexPageResource);
             RoleBean adminRole = new RoleBean("1", "mobile");
             adminRole.setResources(adminResources);
             RoleBean managerRole = new RoleBean("2", "salary");
@@ -48,6 +50,7 @@ public class TestData {
             user2.setUserRoles(managerRoles);
             user2.setResourceBeans(managerResources);
             UserBean user3 = new UserBean("3", "worker", "worker");
+            user3.setResourceBeans(pageResources);
             allUser.add(user1);
             allUser.add(user2);
             allUser.add(user3);

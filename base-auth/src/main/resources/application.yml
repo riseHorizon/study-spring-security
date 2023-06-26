@@ -4,6 +4,7 @@ server:
 spring:
   application:
     name: base-auth
+  #不缓存thymeleaf
   thymeleaf:
     cache: false
   #出现错误时, 直接抛出异常
