@@ -20,8 +20,7 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/mobile/**").hasAuthority("mobile")// 配置资源权限
                 .antMatchers("/salary/**").hasAuthority("salary")
-                .antMatchers("/common/**").permitAll()// common下的请求直接通过
-                // .antMatchers("/login.html", "/main.html").permitAll()
+                .antMatchers("/login.html", "/common/**").permitAll()// common下的请求直接通过
                 .anyRequest().authenticated()// 其他请求需要登录
                 .and()// 并行条件
                 .formLogin()
